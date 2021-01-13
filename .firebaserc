@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eshop-fcdf4": {
+      "hosting": {
+        "eshop-app": [
+          "eshop-fcdf4"
+        ]
+      }
+    }
+  }
+}
