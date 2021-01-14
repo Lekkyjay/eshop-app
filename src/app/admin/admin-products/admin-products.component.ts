@@ -16,18 +16,11 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   filteredProducts: any[];
 
+  displayedColumns: string[] = ['title', 'price', 'edit'];
+  
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    // this.products$ = this.productService.getAll().snapshotChanges()
-    //   .pipe(
-    //     map(products => 
-    //       products.map(product => (
-    //         { key: product.payload.key, ...product.payload.val() }
-    //       ))
-    //     )
-    //   )
-
     this.subscription = this.productService.getAll().snapshotChanges()
       .pipe(
         map(products => 
@@ -36,17 +29,10 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
           ))
         )
       )
-      .subscribe(p => this.filteredProducts =this.products = p)
+      .subscribe(p => this.products = p)
+      
   }
 
-
-  filter(query: string) { 
-    this.filteredProducts = (query) ?
-      this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) :
-      this.products;
-
-    // this.initializeTable(filteredProducts);
-  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
