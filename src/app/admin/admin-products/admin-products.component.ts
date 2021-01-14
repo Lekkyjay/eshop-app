@@ -11,11 +11,9 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
 
-  // products$: Observable<Product[]>;
   products: Product[]
   subscription: Subscription;
-  filteredProducts: any[];
-
+  
   displayedColumns: string[] = ['title', 'price', 'edit'];
   
   constructor(private productService: ProductService) { }

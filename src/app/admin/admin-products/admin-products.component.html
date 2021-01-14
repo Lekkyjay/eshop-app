@@ -37,21 +37,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-
-<!-- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Price</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of filteredProducts">
-      <td>{{ p.title }}</td>
-      <td>{{ p.price }}</td>
-      <td><a [routerLink]="['/admin/product/', p.key]">Edit</a></td>
-    </tr>
-  </tbody>
-</table> -->
