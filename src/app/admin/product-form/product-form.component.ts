@@ -24,7 +24,7 @@ export class ProductFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.categories$ = this.categoryService.getCategories().snapshotChanges()
+    this.categories$ = this.categoryService.getAll().snapshotChanges()
       .pipe(
         map(changes => 
           changes.map(change => ({ $key: change.payload.key, ...change.payload.val() })))
