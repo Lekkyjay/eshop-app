@@ -2,12 +2,22 @@
   <a routerLink="/admin/product/new" class="btn btn-primary">New Product</a>
 </p>
 
-<p>
+<div class="input-group mb-3">
   <input 
-    #query
-    
-    type="text" class="form-control" placeholder="Search...">
-</p>
+    [(ngModel)]="searchKey" 
+    (keyup)="applyFilter()" 
+    type="text" 
+    class="form-control" 
+    placeholder="Search..." 
+    aria-describedby="button-addon2"
+  >
+  <button 
+    *ngIf="searchKey"  
+    (click)="onSearchClear()"
+    class="btn btn-outline-secondary" 
+    type="button" id="button-addon2"
+  >Clear</button>
+</div>
 
 <table mat-table [dataSource]="listData" class="mat-elevation-z8" matSort>
 
@@ -36,4 +46,9 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  <!-- Row shown when there is no matching data. -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{searchKey}}"</td>
+  </tr>
 </table>

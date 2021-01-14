@@ -19,6 +19,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['title', 'price', 'edit'];
   listData: MatTableDataSource<Product>;
   @ViewChild(MatSort) sort: MatSort;
+  searchKey: string
   
   constructor(private productService: ProductService) { }
 
@@ -36,6 +37,15 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
         this.listData.sort = this.sort;
       })
       
+  }
+
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+  }
+
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
   }
 
   ngOnDestroy() {
