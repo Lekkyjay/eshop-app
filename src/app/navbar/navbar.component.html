@@ -1,27 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <a routerLink="/products" class="navbar-brand" href="#">E-Shop</a>
+    <a routerLink="/products" class="navbar-brand">E-Shop</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a routerLink="/shoppingcart" class="nav-link active" aria-current="page" href="#">Shopping Cart</a>
+          <a routerLink="/shoppingcart" class="nav-link active" aria-current="page">
+            Shopping Cart
+            <span class="badge rounded-pill bg-warning text-dark">{{ shoppingCartItemCount }}</span>
+          </a>
         </li>
         <li *ngIf="!appUser" class="nav-item">
-          <a routerLink="/login" class="nav-link" href="#">Login</a>
+          <a routerLink="/login" class="nav-link">Login</a>
         </li>
         <li *ngIf="appUser" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ appUser.name }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a routerLink="/my/orders" class="dropdown-item" href="#">My Orders</a></li>
-            <li><a routerLink="/admin/orders" class="dropdown-item" href="#">Manage Orders</a></li>
-            <li><a routerLink="/admin/products" class="dropdown-item" href="#">Manage Products</a></li>
+            <li><a routerLink="/my/orders" class="dropdown-item">My Orders</a></li>
+            <li><a routerLink="/admin/orders" class="dropdown-item">Manage Orders</a></li>
+            <li><a routerLink="/admin/products" class="dropdown-item">Manage Products</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a (click)="authService.logout()" class="dropdown-item" href="#">Logout</a></li>
+            <li><a (click)="authService.logout()" class="dropdown-item">Logout</a></li>
           </ul>
         </li>
       </ul>

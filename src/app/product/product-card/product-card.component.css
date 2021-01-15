@@ -5,3 +5,11 @@
 .card-footer {
   padding: 0;
 }
+
+.cart-btn {
+  width: 100%;
+}
+
+.getQuantity {
+  cursor: pointer;
+}
