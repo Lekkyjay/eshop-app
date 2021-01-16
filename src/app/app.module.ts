@@ -29,6 +29,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { environment } from 'src/environments/environment';
 import { ProductFilterComponent } from './product/product-filter/product-filter.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ProductCardComponent } from './product/product-card/product-card.compon
     AdminProductsComponent,
     ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,

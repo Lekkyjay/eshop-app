@@ -1,8 +1,8 @@
 import { Product } from "./product";
 
 export class ShoppingCartItem {
-  quantity: number; 
-  product: Product;
+  
+  constructor(public quantity: number, public product: Product) {}
 
   get totalPrice() {
     return this.product.price * this.quantity
