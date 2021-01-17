@@ -3,12 +3,14 @@ import { ShoppingCartItem } from "./shopping-cart-item";
 
 export class ShoppingCart {
 
-  items: ShoppingCartItem[] = []
+  private items: ShoppingCartItem[] = []    //used below to calculate total price
   
-  constructor(public itemsMap: { [productId: string]: ShoppingCartItem }) {
+  constructor(private itemsMap: { [productId: string]: ShoppingCartItem }) {
+    this.itemsMap = itemsMap || {}    //itemsMap is an object of object/objects or empty object
+
     for (let productId in itemsMap) {
-      let item = itemsMap[productId]
-      this.items.push(new ShoppingCartItem(item.quantity, item.product))
+      let item = itemsMap[productId]  //cart item object from database
+      this.items.push(new ShoppingCartItem({key: productId, ...item}))
     }    
   }
 
