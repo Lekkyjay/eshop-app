@@ -3,7 +3,7 @@ import { ShoppingCartItem } from "./shopping-cart-item";
 
 export class ShoppingCart {
 
-  private items: ShoppingCartItem[] = []    //used below to calculate total price
+  public items: ShoppingCartItem[] = []    //used below in totalPrice, and in shopping-cart-summary
   
   constructor(private itemsMap: { [productId: string]: ShoppingCartItem }) {
     this.itemsMap = itemsMap || {}    //itemsMap is an object of object/objects or empty object
