@@ -1,14 +1,4 @@
 {
-  "targets": {
-    "eshop-fcdf4": {
-      "hosting": {
-        "myshop": [
-          "eshop-fcdf4"
-        ]
-      }
-    }
-  },
-  "projects": {
-    "default": "eshop-fcdf4"
-  }
+  "targets": {},
+  "projects": {}
 }
